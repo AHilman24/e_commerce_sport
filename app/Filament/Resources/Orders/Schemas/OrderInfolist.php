@@ -1,31 +1,26 @@
 <?php
 
-namespace App\Filament\Resources\Users\Schemas;
+namespace App\Filament\Resources\Orders\Schemas;
 
-use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
-class UserInfolist
+class OrderInfolist
 {
     public static function configure(Schema $schema): Schema
     {
         return $schema
             ->components([
-                TextEntry::make('name'),
-                TextEntry::make('email')
-                    ->label('Email address'),
-                TextEntry::make('role')
+                TextEntry::make('user_id')
+                    ->numeric(),
+                TextEntry::make('total')
+                    ->numeric(),
+                TextEntry::make('status')
                     ->badge(),
-                ImageEntry::make('avatar')
-                    ->label('Avatar')
-                    ->circular()
-                    ->placeholder('-'),
                 TextEntry::make('alamat')
                     ->placeholder('-')
                     ->columnSpanFull(),
-                TextEntry::make('no_hp')
-                    ->placeholder('-'),
+                TextEntry::make('metode_pembayaran'),
                 TextEntry::make('created_at')
                     ->dateTime()
                     ->placeholder('-'),
