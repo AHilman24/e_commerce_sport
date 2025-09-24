@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Users\Schemas;
 
+use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
@@ -19,7 +20,9 @@ class UserInfolist
                     ->placeholder('-'),
                 TextEntry::make('role')
                     ->badge(),
-                TextEntry::make('avatar')
+                ImageEntry::make('avatar') // 👈 ganti dari TextEntry
+                    ->label('Avatar')
+                    ->circular() // biar bulat kaya profil
                     ->placeholder('-'),
                 TextEntry::make('alamat')
                     ->placeholder('-')
